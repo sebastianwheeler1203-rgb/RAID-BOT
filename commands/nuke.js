@@ -36,14 +36,15 @@ export default {
     };
 
     guild.roles.cache.forEach(role => {
-      exportData.roles.push({
-        id: role.id,
-        name: role.name,
-        color: role.color,
-        position: role.position,
-        permissions: role.permissions.bitfield
-      });
-    });
+  exportData.roles.push({
+    id: role.id,
+    name: role.name,
+    color: role.color,
+    position: role.position,
+    permissions: role.permissions.bitfield.toString() // FIXED
+  });
+});
+
 
     guild.channels.cache.forEach(channel => {
       exportData.channels.push({
